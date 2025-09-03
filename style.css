@@ -1,60 +1,254 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f9fc;
-  color: #333;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background-color: #f9fbfe;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Variáveis de cor */
+:root {
+  --primaria: #003366;
+  --secundaria: #0055aa;
+  --destaque: #ffaa00;
+  --fundo-claro: #ffffff;
+  --cinza-claro: #eeeeee;
+}
+
+/* Header */
 .header {
-  background-color: #004080;
+  background-color: var(--primaria);
+  padding: 20px 40px;
   color: white;
-  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
 }
 
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
 .nav-menu li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 .nav-menu li a:hover {
-  text-decoration: underline;
+  color: var(--destaque);
 }
 
-main {
-  padding: 40px 20px;
+/* Botões */
+.btn {
+  display: inline-block;
+  background-color: var(--secundaria);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
+.btn:hover {
+  background-color: var(--primaria);
+}
+
+/* Página inicial (index) */
 .intro {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
   align-items: center;
   justify-content: center;
-}
-
-.avatar {
-  width: 200px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
 }
 
 .intro-texto {
- 
+  max-width: 500px;
+}
+
+.intro-texto h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--primaria);
+}
+
+.intro-texto p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Imagem avatar */
+.avatar {
+  width: 220px;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Projetos */
+.projetos {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.projetos h2 {
+  font-size: 2.3em;
+  text-align: center;
+  color: var(--primaria);
+  margin-bottom: 40px;
+}
+
+.projeto-card {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--fundo-claro);
+  border: 1px solid var(--cinza-claro);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.projeto-card img {
+  width: 100%;
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.projeto-info {
+  padding: 20px;
+  flex: 1;
+}
+
+.projeto-info h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: var(--secundaria);
+}
+
+.projeto-info p {
+  font-size: 1.1em;
+  color: #444;
+}
+
+/* Currículo */
+.curriculo {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.curriculo h2 {
+  font-size: 2.3em;
+  text-align: center;
+  color: var(--primaria);
+  margin-bottom: 40px;
+}
+
+.curriculo h3 {
+  font-size: 1.5em;
+  margin-top: 30px;
+  color: var(--secundaria);
+}
+
+.curriculo ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.curriculo ul li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/* Contato */
+.contato {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contato h2 {
+  font-size: 2.3em;
+  margin-bottom: 20px;
+  color: var(--primaria);
+}
+
+.contato p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 1em;
+  margin-top: 60px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    margin-bottom: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-menu {
+    justify-content: center;
+  }
+
+  .projeto-card {
+    flex-direction: column;
+  }
+
+  .projeto-card img {
+    max-width: 100%;
+  }
+}
